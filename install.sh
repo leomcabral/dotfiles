@@ -72,8 +72,6 @@ ins_zsh() {
         log_rm ".zshrc"
         rm $HOME/.zshrc
     fi
-    ln -sf $SCRIPT_HOME/zshrc .zshrc
-    log_ln ".zshrc"
 
     # oh-my-zsh
     if [ -d $HOME/.oh-my-zsh ]; then
@@ -87,6 +85,9 @@ ins_zsh() {
     # oh-my-zsh-custom
     cp -r $SCRIPT_HOME/oh-my-zsh-custom/* .oh-my-zsh/custom
     log_cp ".oh-my-zsh/custom"
+
+    ln -sf $SCRIPT_HOME/zshrc .zshrc
+    log_ln ".zshrc"
 
     log_ins_end
 }
