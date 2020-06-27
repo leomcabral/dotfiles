@@ -80,11 +80,7 @@ ins_zsh() {
     fi
     log_download ".oh-my-zsh"
     curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o ${TMP_SCRIPT_DIR}/zshinstall.sh
-    (RUNZSH="no" sh ${TMP_SCRIPT_DIR}/zshinstall.sh > /dev/null)
-
-    # oh-my-zsh-custom
-    cp -r $SCRIPT_HOME/oh-my-zsh-custom/* .oh-my-zsh/custom
-    log_cp ".oh-my-zsh/custom"
+    (RUNZSH="no" sh ${TMP_SCRIPT_DIR}/zshinstall.sh)
 
     ln -sf $SCRIPT_HOME/zshrc .zshrc
     log_ln ".zshrc"
