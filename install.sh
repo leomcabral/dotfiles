@@ -3,6 +3,10 @@
 SCRIPT_HOME=`pwd`/$(dirname "$0")
 LOG_MODULE=""
 
+# make a tmp dir for the script
+TMP_SCRIPT_DIR=${SCRIPT_HOME}/tmp
+mkdir -p ${TMP_SCRIPT_DIR}
+
 defaultColor="\033[0m"
 redColor="\033[1;31m"
 greenColor="\033[1;32m"
@@ -77,7 +81,8 @@ ins_zsh() {
         rm -Rf $HOME/.oh-my-zsh
     fi
     log_download ".oh-my-zsh"
-    $(sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o ${TMP_SCRIPT_DIR}/zshinstall.sh
+    (RUNZSH="no" sh ${TMP_SCRIPT_DIR}/zshinstall.sh)
 
     # oh-my-zsh-custom
     cp -r $SCRIPT_HOME/oh-my-zsh-custom/* .oh-my-zsh/custom
@@ -98,4 +103,7 @@ echo ""
 # Do the installs...
 ins_git
 ins_zsh
+
+# remove script tmp dir
+rm -rf ${TMP_SCRIPT_DIR}
 
