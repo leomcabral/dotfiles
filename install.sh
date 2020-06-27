@@ -49,21 +49,6 @@ log_ins_end() {
 #
 
 #
-# Install git config stuff
-#
-ins_git() {
-    #echo "Installing git configuration..."
-    log_ins "git"
-    if [ -f $HOME/.gitconfig ]; then
-        log_rm ".gitconfig"
-        rm $HOME/.gitconfig
-    fi
-    ln -sf $SCRIPT_HOME/gitconfig .gitconfig
-    log_ln ".gitconfig"
-    log_ins_end
-}
-
-#
 # Install zsh config
 #
 ins_zsh() {
@@ -98,7 +83,7 @@ echo "SCRIPT_HOME=$SCRIPT_HOME"
 echo ""
 
 # Do the installs...
-ins_git
+. ${SCRIPT_HOME}/modules/git/install.sh
 ins_zsh
 
 # remove script tmp dir
