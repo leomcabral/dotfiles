@@ -28,6 +28,10 @@ log_ln() {
     log "${greenColor}Symbolic link $1 created!$defaultColor"
 }
 
+log_download() {
+    log "${greenColor}Downloading $1.${defaultColor}"
+}
+
 log_cp() {
     log "${greenColor}Copying files to $1.$defaultColor"
 }
@@ -72,8 +76,8 @@ ins_zsh() {
         log_rm ".oh-my-zsh"
         rm -Rf $HOME/.oh-my-zsh
     fi
-    ln -sf $SCRIPT_HOME/oh-my-zsh .oh-my-zsh
-    log_ln ".oh-my-zsh"
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    log_download ".oh-my-zsh"
 
     # oh-my-zsh-custom
     cp -r $SCRIPT_HOME/oh-my-zsh-custom/* .oh-my-zsh/custom
