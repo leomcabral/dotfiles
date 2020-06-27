@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin:$PATH:$HOME/bin/node/bin:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin
+export PATH=$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/leomcabral/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ ZSH_CUSTOM=$HOME/dev/leomcabral/dotfiles/oh-my-zsh_custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl docker docker-compose docker-machine aws brew mvn rust rustp cargo leomcabral copydir copyfile pip )
+plugins=(git kubectl docker docker-compose docker-machine aws brew mvn rust rustup cargo leomcabral copydir copyfile pip )
 
 source $ZSH/oh-my-zsh.sh
 
